@@ -24,7 +24,7 @@ export default function AboutPage() {
       title="Better Decisions Come From Clarity & Precision."
       description="In a market often shaped by noise, speculation, and artificial urgency, Leap Living operates with certainty. Our advice is grounded in deep market intelligence, direct access to key stakeholders, and long-standing relationships across the UAE real estate ecosystem."
       image="/images/hero/hero-skyline.jpg"
-      alt="Dubai skyline at sunset across calm water"
+      alt="Dubai skyline under a clear blue sky"
     >
       <Link className="button button-teal" href="/contact">Schedule Strategic Consultation <ArrowRight size={17} /></Link>
       <Link className="button button-ghost" href="/buy">Explore Properties <ArrowRight size={17} /></Link>

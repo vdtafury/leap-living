@@ -10,7 +10,7 @@ Developer names are typeset wordmarks, pending delivery of approved logo artwork
 
 | File | Source |
 | --- | --- |
-| `hero/hero-skyline.jpg` | Andrew Prokos, *Burj Khalifa / Dubai Creek skyline at sunset* — https://andrewprokos.com/photo/burj-khalifa-dubai-creek-skyline-sunset-6757/ (bottom edge cropped to remove the photographer's mark) |
+| `hero/hero-skyline.jpg` | Daytime Dubai skyline with Burj Khalifa and the turquoise fountain lake under a clear blue sky — https://wallpaperaccess.com/ (1920×1080, downloaded via image search; replaces an earlier sunset shot that clashed with the light theme) |
 | `hero/hero-villa.jpg` | Happy Home Inspo, modern curved luxury villa exterior — https://happyhomeinspo.com/25-stunning-modern-luxury-villa-designs-for-a-breathtaking-exterior |
 | `../brand/brand-light.png`, `../brand/brand-dark.png` | Trimmed dark-teal / white variants of the supplied `leap-living-logo.png` |
 | `hero/cta-architecture.jpg` | Pexels, blue glass facade — https://www.pexels.com/photo/blue-glass-facade-of-modern-building-18193138/ |
@@ -29,7 +29,7 @@ Developer names are typeset wordmarks, pending delivery of approved logo artwork
 | File | Source |
 | --- | --- |
 | `properties/property-waterfront.jpg` | One Kind Design, waterfront villa on Palm Jumeirah — https://onekindesign.com/waterfront-villa-palm-jumeirah-luxury-living/ |
-| `properties/property-penthouse.jpg` | Pexels, interior with panoramic skyline view — https://www.pexels.com/photo/modern-office-with-panoramic-city-skyline-view-35074089/ |
+| `properties/property-penthouse.jpg` | Unsplash, modern penthouse living room with floor-to-ceiling windows and city view — https://unsplash.com/photos/ (2560×1400, downloaded via image search; replaces an earlier café/office interior that didn't match the listing) |
 | `properties/property-golf.jpg` | Harper Wellington, Dubai Hills Estate golf community — https://harperwellington.com/communities/dubai-hills-estate |
 | `properties/property-palm.jpg` | Le Figaro Properties, Palm Jumeirah villa pool with sea view — https://properties.lefigaro.com/announces/villa-real+estate-dubai-are/?ville=the+palm+jumeirah |
 | `properties/property-marina.jpg` | Pexels, Dubai Marina skyline and yachts — https://www.pexels.com/photo/dubai-marina-under-blue-sky-4471200/ |

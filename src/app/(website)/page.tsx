@@ -45,7 +45,7 @@ export default function HomePage() {
     {/* -------------------------------------------------------------- hero */}
     <section className="hero" aria-label="LEAP LIVING real estate advisory">
       <div className="hero-media">
-        <Image className="hero-photo" src="/images/hero/hero-skyline.jpg" alt="Dubai skyline and Burj Khalifa at sunset across calm water" fill priority quality={85} sizes="130vw" />
+        <Image className="hero-photo" src="/images/hero/hero-skyline.jpg" alt="Dubai skyline and Burj Khalifa under a clear blue sky" fill priority quality={85} sizes="100vw" />
         <div className="hero-fade" />
       </div>
       <Link className="hero-villa" href="/buy" aria-label="Explore the featured residence in the Buy catalogue">
