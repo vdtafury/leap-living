@@ -24,7 +24,7 @@
   --line: #E2EBEA;
   --charcoal: #10292B;
   --brand-teal: #3B9EA1;      /* official LEAP LIVING teal */
-  --header-max: 1280px;
+  --header-max: 1320px;
   --header-clearance: 104px;
 }
 
@@ -61,31 +61,24 @@ img { max-width: 100%; }
 .section-heading.is-centered .eyebrow { justify-content: center; }
 
 /* ----------------------------------------------------------------- header */
-/* All header geometry is driven by these tokens so desktop, tablet and mobile
-   stay consistent instead of each breakpoint overriding raw numbers. */
+/* Flat, full-width bar. All geometry is driven by these tokens so desktop,
+   tablet and mobile stay consistent instead of restating raw numbers. */
 .site-header {
   --header-h: 70px;
-  --header-pad: 22px;
   --header-gap: 24px;
-  --header-gutter: 80px;
-  --header-radius: 999px;
+  --header-gutter: 100px;
   --header-side: 210px;
   --logo-w: 92px;
   --nav-gap: clamp(20px, 2.1vw, 30px);
   position: fixed; inset: 0 0 auto; z-index: 30;
-  padding: 14px 0 0;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: padding .25s, background .25s, border-color .25s, box-shadow .25s;
+  padding: 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  transition: border-color .25s;
 }
-/* Sticky state: one subtle full-width surface, with the pill keeping a soft shadow. */
-.site-header.is-scrolled {
-  padding-top: 9px;
-  background: rgba(255,255,255,.94);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border-bottom-color: rgba(18,57,59,.07);
-  box-shadow: 0 8px 28px rgba(16,58,60,.07);
-}
+/* Sticky state: the bar stays flat; only the hairline strengthens. No blur,
+   no shadow, no lift or floating surface. */
+.site-header.is-scrolled { border-bottom-color: var(--teal-soft); }
 .site-header .header-shell {
   position: relative;
   width: min(var(--header-max), calc(100% - var(--header-gutter)));
@@ -93,15 +86,13 @@ img { max-width: 100%; }
   height: var(--header-h);
   display: flex; align-items: center;
   gap: var(--header-gap);
-  padding: 0 var(--header-pad);
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--header-radius);
-  box-shadow: 0 10px 30px rgba(16,58,60,.07);
-  transition: box-shadow .25s;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
-.site-header.is-scrolled .header-shell { box-shadow: 0 4px 16px rgba(16,58,60,.055); }
-/* Equal side columns keep the nav mathematically centred in the pill. */
+/* Equal side columns keep the nav mathematically centred in the bar. */
 .brand-mark { display: flex; align-items: center; gap: 12px; flex: 0 0 var(--header-side); min-width: 0; padding-block: 4px; }
 .brand-mark img { display: block; width: var(--logo-w); height: auto; flex: 0 0 auto; }
 .brand-divider { display: block; width: 1px; height: 30px; flex: 0 0 auto; background: var(--line); }
@@ -113,7 +104,7 @@ img { max-width: 100%; }
 .main-nav a.active::after { content: ''; position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); width: calc(100% - 8px); height: 2px; border-radius: 2px; background: var(--brand-teal); }
 .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: 20px; flex: 0 0 var(--header-side); }
 .header-cta { min-width: 170px; }
-.menu-toggle { display: none; margin-left: auto; width: 40px; height: 40px; place-items: center; border: 0; border-radius: 50%; background: none; color: var(--teal-ink); transition: background .2s; }
+.menu-toggle { display: none; margin-left: auto; width: 40px; height: 40px; place-items: center; border: 0; border-radius: 4px; background: none; color: var(--teal-ink); transition: background .2s; }
 .menu-toggle:hover { background: var(--teal-pale); }
 
 /* ------------------------------------------------------------------- hero */
@@ -376,16 +367,16 @@ img { max-width: 100%; }
 }
 @media (max-width: 1040px) {
   .wrap { width: calc(100% - 56px); }
-  .site-header { --header-gutter: 56px; --header-h: 64px; --header-pad: 18px; --header-side: auto; --logo-w: 78px; --header-radius: 20px; }
+  .site-header { --header-gutter: 56px; --header-h: 64px; --header-side: auto; --logo-w: 78px; }
   .brand-mark { flex: 0 0 auto; }
   .brand-sub { font-size: 6.5px; }
   .header-actions { display: none; }
   .menu-toggle { display: grid; }
-  .main-nav { display: none; position: absolute; top: calc(100% + 8px); left: 0; right: 0; height: auto; margin: 0; padding: 8px 18px 12px; flex-direction: column; align-items: stretch; gap: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); box-shadow: 0 18px 40px rgba(16,58,60,.16); }
+  .main-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; height: auto; margin: 0; padding: 8px 0 12px; flex-direction: column; align-items: stretch; gap: 0; border: 1px solid var(--line); border-top: 0; border-radius: 0; background: var(--white); box-shadow: none; }
   .main-nav.is-open { display: flex; }
   .main-nav a { height: auto; padding: 13px 6px; border-bottom: 1px solid var(--line); font-size: 13px; }
   .main-nav a:last-child { border-bottom: 0; }
-  .main-nav a.active { padding-inline: 10px; border-radius: 5px; background: var(--teal-mist); }
+  .main-nav a.active { padding-inline: 10px; border-radius: 0; background: var(--teal-mist); }
   .main-nav a.active::after { display: none; }
   .hero { padding-top: 130px; }
   .hero-media { height: 520px; }
@@ -423,7 +414,7 @@ img { max-width: 100%; }
 @media (max-width: 760px) {
   :root { --header-clearance: 88px; }
   .wrap { width: calc(100% - 36px); }
-  .site-header { --header-gutter: 36px; --header-h: 60px; --header-pad: 14px; --header-gap: 12px; --header-radius: 16px; --logo-w: 70px; }
+  .site-header { --header-gutter: 36px; --header-h: 60px; --header-gap: 12px; --logo-w: 70px; }
   .brand-mark { gap: 8px; }
   .brand-divider { height: 26px; }
   .brand-sub { font-size: 6px; padding-left: 0; }
