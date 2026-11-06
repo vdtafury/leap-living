@@ -63,6 +63,10 @@ src/
 
 **Not built yet (later phases of the target architecture):** `src/app/admin/`, `src/app/api/`, `prisma/`, `storage/`, `scripts/`, `[slug]` property-detail pages and `/private-advisory`. Icons come from `lucide-react` and fonts from `@fontsource`, so `public/icons/` and `public/fonts/` are intentionally omitted.
 
+## Navbar
+
+The header is a floating white pill inside a fixed bar that is transparent at rest and gains a subtle white surface, border and shadow once the page scrolls. All geometry is driven by tokens on `.site-header` (`--header-h`, `--header-pad`, `--header-gap`, `--header-gutter`, `--header-radius`, `--header-side`, `--logo-w`, `--nav-gap`) and overridden per breakpoint instead of restating raw numbers. Equal side columns keep the six links mathematically centred, and the active indicator uses the official brand teal `--brand-teal: #3B9EA1` (with `aria-current="page"`). `--header-clearance` drives `scroll-padding-top`, anchor `scroll-margin-top` and the toast offset so sticky content never overlaps. The Private Advisory button uses the shared `.button--compact` variant. Navigation labels, links, the logo artwork and all functionality are unchanged.
+
 ## Behaviour
 
 Home search pushes real URL parameters into `/buy` or `/rent`; the catalogue reads them, applies location/type/bedroom/price filters, supports price sorting, grid/list views, favourites, dossier and viewing requests, and shows a clear empty state. All forms are front-end prototypes — no data leaves the browser and no backend or live listings feed is connected.
