@@ -1,13 +1,20 @@
 import Link from "next/link";
+import SiteShell from "@/components/layout/SiteShell";
+import { SectionHeader } from "@/components/shared/SectionHeader";
 
 export default function NotFound() {
-  return <main style={{ minHeight: "70vh", display: "grid", placeItems: "center", textAlign: "center", padding: "80px 24px" }}>
-    <div>
-      <p style={{ color: "var(--teal-dark)", letterSpacing: ".18em", fontSize: 11, fontWeight: 700 }}>404 · PAGE NOT FOUND</p>
-      <h1 style={{ fontFamily: "'Manrope', sans-serif", fontSize: "clamp(36px, 6vw, 64px)", margin: "18px 0 26px", color: "var(--ink)" }}>
-        This page isn&apos;t available.
-      </h1>
-      <Link className="button button-teal" href="/">Back to Home</Link>
-    </div>
-  </main>;
+  return <SiteShell>
+    <section className="section-pad"><div className="wrap" style={{ maxWidth: 680, marginInline: "auto" }}>
+      <SectionHeader
+        eyebrow="404 · PAGE NOT FOUND"
+        title="This page is not available."
+        supporting="The page you requested has moved or does not exist. Head back to the homepage, or explore the verified portfolio."
+        centered
+      />
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12, marginTop: 30 }}>
+        <Link className="button button-teal" href="/">Back to Home</Link>
+        <Link className="button button-outline" href="/buy">Browse Properties</Link>
+      </div>
+    </div></section>
+  </SiteShell>;
 }

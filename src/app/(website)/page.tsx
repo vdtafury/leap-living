@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import {
   ArrowRight, ArrowUpRight, Building2, ChevronDown, Clock3, Compass, KeyRound,
   Layers3, MapPin, ShieldCheck, SlidersHorizontal, Users,
@@ -28,7 +28,7 @@ export default function HomePage() {
   const [intent, setIntent] = useState<Intent>("Buy");
   const [draft, setDraft] = useState<Filters>(emptyFilters);
 
-  const runSearch = (event: React.FormEvent) => {
+  const runSearch = (event: FormEvent) => {
     event.preventDefault();
     const params = new URLSearchParams();
     if (draft.location !== "All Locations") params.set("location", draft.location);
@@ -48,7 +48,10 @@ export default function HomePage() {
         <Image className="hero-photo" src="/images/hero/hero-skyline.jpg" alt="Dubai skyline and Burj Khalifa at sunset across calm water" fill priority sizes="100vw" />
         <div className="hero-fade" />
       </div>
-      <div className="hero-villa"><Image src="/images/hero/hero-villa.jpg" alt="Curved contemporary villa with warm interior lighting and landscaped gardens" fill sizes="30vw" /></div>
+      <Link className="hero-villa" href="/buy" aria-label="Explore the featured residence in the Buy catalogue">
+        <Image src="/images/hero/hero-villa.jpg" alt="Curved contemporary villa with warm interior lighting and landscaped gardens" fill sizes="30vw" />
+        <span className="hero-villa-label">Featured Residence <b>·</b> Palm Jumeirah <ArrowUpRight size={13} /></span>
+      </Link>
 
       <div className="wrap hero-inner">
         <div className="hero-copy">

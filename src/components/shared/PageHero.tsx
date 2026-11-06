@@ -1,9 +1,10 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import { Breadcrumbs } from "./Breadcrumbs";
 
 export function PageHero({ eyebrow, title, description, image, alt, crumb, children }: {
   eyebrow: string; title: string; description: string; image: string; alt: string; crumb: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }) {
   return <section className="page-hero">
     <div className="page-hero-media">
