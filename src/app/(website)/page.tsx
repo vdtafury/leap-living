@@ -45,11 +45,11 @@ export default function HomePage() {
     {/* -------------------------------------------------------------- hero */}
     <section className="hero" aria-label="LEAP LIVING real estate advisory">
       <div className="hero-media">
-        <Image className="hero-photo" src="/images/hero/hero-skyline.jpg" alt="Dubai skyline and Burj Khalifa at sunset across calm water" fill priority sizes="100vw" />
+        <Image className="hero-photo" src="/images/hero/hero-skyline.jpg" alt="Dubai skyline and Burj Khalifa at sunset across calm water" fill priority quality={85} sizes="130vw" />
         <div className="hero-fade" />
       </div>
       <Link className="hero-villa" href="/buy" aria-label="Explore the featured residence in the Buy catalogue">
-        <Image src="/images/hero/hero-villa.jpg" alt="Curved contemporary villa with warm interior lighting and landscaped gardens" fill sizes="30vw" />
+        <Image src="/images/hero/hero-villa.jpg" alt="Curved contemporary villa with warm interior lighting and landscaped gardens" fill quality={85} sizes="(max-width: 1040px) 38vw, 420px" />
         <span className="hero-villa-label">Featured Residence <b>·</b> Palm Jumeirah <ArrowUpRight size={13} /></span>
       </Link>
 
