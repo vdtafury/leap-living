@@ -1,5 +1,5 @@
 {
-  "name": "leap-living-homepage",
+  "name": "leap-living",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -25,6 +25,8 @@
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react": "^6.2.1",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.29",
     "jsdom": "^31.0.0",
     "typescript": "^5.7.2",
     "vitest": "^5.1.0"

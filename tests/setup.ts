@@ -5,7 +5,10 @@ import "@testing-library/jest-dom/vitest";
 
 vi.mock("next/image", () => ({
   default: (props: ImgHTMLAttributes<HTMLImageElement> & { fill?: boolean; priority?: boolean; sizes?: string }) => {
-    const { fill: _fill, priority: _priority, sizes: _sizes, ...imageProps } = props;
+    const imageProps = { ...props };
+    delete imageProps.fill;
+    delete imageProps.priority;
+    delete imageProps.sizes;
     return createElement("img", imageProps);
   },
 }));
