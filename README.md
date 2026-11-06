@@ -24,7 +24,7 @@ Then open `http://localhost:3000`. Use `npm run build` for a production build an
 | `/sell` | Valuation and selling-plan CTA, a prototype valuation form and the selling process. |
 | `/contact` | Name, email and message form, plus office, email, phone and opening-hours details. |
 
-A custom `src/app/not-found.tsx` handles unknown paths.
+A custom `src/app/not-found.tsx` handles unknown paths inside the shared `SiteShell` (header and footer included). The hero's rounded villa image is a linked **featured-property visual** with a "Featured Residence · Palm Jumeirah" caption that leads to `/buy`.
 
 ## Structure
 
