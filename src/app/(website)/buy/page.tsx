@@ -17,7 +17,7 @@ export default function BuyPage() {
       title="Curated Properties. Institutional Diligence."
       description="Every property in the Leap Living portfolio has been commercially vetted for location durability, developer track record, yield potential, and long-term capital preservation."
       image="/images/hero/hero-skyline.jpg"
-      alt="Dubai skyline and Burj Khalifa at sunset"
+      alt="Dubai skyline and Burj Khalifa under a clear blue sky"
     >
       <Link className="button button-teal" href="#catalogue">Browse Verified Properties <ArrowRight size={17} /></Link>
       <Link className="button button-ghost" href="/contact">Request a Private Dossier <ArrowRight size={17} /></Link>
