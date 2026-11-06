@@ -12,8 +12,8 @@ export default function RentPage() {
     <PageHero
       crumb="RENT"
       eyebrow="PRIME RESIDENCES · DUBAI"
-      title="Considered Living. Verified Residences."
-      description="A curated selection of long-term rental homes with transparent monthly pricing, confirmed availability, and the key features that matter — from private beach access to concierge service."
+      title="A considered approach to renting in Dubai."
+      description="Our public rental catalogue is not published yet. Residences and monthly pricing will appear here once current availability is connected to the CRM. Speak with an advisor about a specific requirement."
       image="/images/properties/property-terrace.jpg"
       alt="Elegant contemporary residence opening onto a waterfront terrace"
     >

@@ -7,11 +7,20 @@ A responsive, light-themed, **English-only** real-estate advisory site built wit
 ## Run locally
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Then open `http://localhost:3000`. Use `npm run build` for a production build and `npx eslint .` to lint.
+Then open `http://localhost:3000`.
+
+## Quality checks
+
+```bash
+npm test
+npm run build
+npx eslint .
+npm audit
+```
 
 ## Routes
 
@@ -20,7 +29,7 @@ Then open `http://localhost:3000`. Use `npm run build` for a production build an
 | `/` | Home — "Unlock your next move" hero, Buy / Rent / Commercial search, company stats, three featured acquisitions, Discover · Decide · Move teaser and advisory CTAs. |
 | `/about` | Company story, CEO message, Discover · Decide · Move methodology, commitments and developer partners. |
 | `/buy` | Homes for sale with prices, bedrooms, bathrooms, square footage and property types; buyer journey and private-dossier flow. |
-| `/rent` | Long-term rentals with monthly pricing, location, availability and key features; leasing journey. |
+| `/rent` | Leasing advisory content with an explicit empty state until CRM-backed rental availability is connected. |
 | `/sell` | Valuation and selling-plan CTA, a prototype valuation form and the selling process. |
 | `/contact` | Name, email and message form, plus office, email, phone and opening-hours details. |
 
@@ -52,11 +61,13 @@ src/
 │   └── shared/       SectionHeader, Breadcrumbs, PageHero, CtaBand, Steps, PartnersRow
 ├── features/
 │   ├── home/data/         home approach content
-│   ├── properties/        components/PropertyCard, filters/Catalogue, data/listings
+│   ├── properties/        components, filters/Catalogue, data/listings + category helper
 │   └── advisory/data/     methods, commitments, partners
 ├── config/            navigation.ts, site.ts, metadata.ts
 ├── types/             property.ts (canonical Category / Intent / Listing types)
 └── lib/               reserved for backend services
+
+tests/                  catalogue/category empty-state tests
 ```
 
 `src/app/(website)/layout.tsx` wraps every public route in `SiteShell`, which owns the shared header, footer, favourites, toast notices, enquiry modal and mobile advisory CTA. Configuration lives in one place (`config/`), domain types in `types/`, and content in `features/`.
@@ -71,9 +82,13 @@ The header is a floating white pill inside a fixed bar that is transparent at re
 
 The home hero uses a `next/image` `fill` photo, not a CSS background: `object-fit: cover` keeps the source proportions (no stretching), `object-position: center 0%` frames the skyline from the top, and a uniform `scale(1.3)` crops the streaked water reflection out of frame. `sizes="130vw"` matches that zoom so the browser requests a source at the real displayed width instead of upscaling a smaller variant; `next.config.ts` adds a 1440 `deviceSizes` step for the same reason. A single alpha mask on `.hero-media` dissolves the band into the white page, replacing the two stacked white overlays that previously produced a milky gradient. The left-to-right scrim is the only remaining overlay, so copy contrast is preserved without tinting the sunset. The featured-villa image is tucked flush beneath the header pill with a true rounded corner, a soft top blend, and its own responsive `sizes`; it sits above the transparent hero content layer so the `/buy` link stays clickable.
 
-## Behaviour
+## Behaviour and rental availability
 
-Home search pushes real URL parameters into `/buy` or `/rent`; the catalogue reads them, applies location/type/bedroom/price filters, supports price sorting, grid/list views, favourites, dossier and viewing requests, and shows a clear empty state. All forms are front-end prototypes — no data leaves the browser and no backend or live listings feed is connected.
+Home search pushes real URL parameters into `/buy` or `/rent`; the catalogue reads them, applies location/type/bedroom/price filters, supports price sorting, grid/list views, favourites, dossier and viewing requests, and shows a clear empty state. The rental inventory is intentionally empty until CRM availability is supplied: the `/rent` catalogue explains that status instead of showing sample listings. Buy and commercial records remain illustrative. All forms are front-end prototypes — no data leaves the browser and no backend or live listings feed is connected.
+
+## Automated tests
+
+Vitest and React Testing Library cover the property-category selector, rental empty state, and the acquisition filter-reset action. Add new tests alongside `tests/catalogue.test.tsx` as the listing experience evolves.
 
 ## Assets & licensing
 

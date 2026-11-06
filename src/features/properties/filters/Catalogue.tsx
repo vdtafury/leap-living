@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import { useSite } from "@/components/layout/SiteContext";
 import { PropertyCard } from "@/features/properties/components/PropertyCard";
+import { CatalogueEmptyState } from "@/features/properties/components/CatalogueEmptyState";
+import { getListingsByCategory } from "@/features/properties/data/category";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { bedroomOptions, listings, locations, propertyTypes } from "@/features/properties/data/listings";
 import type { Category } from "@/types/property";
@@ -43,8 +45,7 @@ export default function Catalogue({ category, allowCommercial = false, eyebrow =
     const min = Number(applied.min.replace(/[^0-9]/g, "")) || 0;
     const max = Number(applied.max.replace(/[^0-9]/g, "")) || Infinity;
     const beds = applied.beds === "Any" ? 0 : Number(applied.beds.replace("+", ""));
-    const result = listings.filter((item) => {
-      if (item.category !== activeCategory) return false;
+    const result = getListingsByCategory(listings, activeCategory).filter((item) => {
       if (applied.location !== "All Locations" && item.location !== applied.location) return false;
       if (applied.type !== "All Types" && item.type !== applied.type) return false;
       if (beds && item.beds < beds) return false;
@@ -70,7 +71,7 @@ export default function Catalogue({ category, allowCommercial = false, eyebrow =
 
   return <section className="catalogue-section section-pad" id={id}><div className="wrap">
     <div className="properties-top">
-      <SectionHeader eyebrow={eyebrow} title={title} supporting={supporting ?? (isRent ? "Prime long-term residences with monthly pricing, availability and key features." : "Institutional diligence applied to every asset in the Leap Living portfolio.")} />
+      <SectionHeader eyebrow={eyebrow} title={title} supporting={supporting ?? (isRent ? "Rental properties will be listed here once current availability is connected to the CRM." : "Institutional diligence applied to every asset in the Leap Living portfolio.")} />
       {allowCommercial && <div className="category-switch" role="tablist" aria-label="Property category">
         <button role="tab" aria-selected={activeCategory === "buy"} className={activeCategory === "buy" ? "selected" : ""} onClick={() => switchCategory("buy")}>Featured Acquisitions (Buy)</button>
         <button role="tab" aria-selected={activeCategory === "commercial"} className={activeCategory === "commercial" ? "selected" : ""} onClick={() => switchCategory("commercial")}>Commercial Mandates</button>
@@ -86,7 +87,7 @@ export default function Catalogue({ category, allowCommercial = false, eyebrow =
     </form>
 
     <div className="results-bar">
-      <div className="results-count"><strong>{visible.length} Properties Found</strong><span>{isRent ? "Prime residences · monthly pricing" : activeCategory === "commercial" ? "Institutional & off-market mandates" : "Verified acquisition opportunities"}</span></div>
+      <div className="results-count"><strong>{isRent && visible.length === 0 ? "No Rental Residences Listed Yet" : `${visible.length} Properties Found`}</strong><span>{isRent ? "Rental catalogue awaiting CRM availability" : activeCategory === "commercial" ? "Institutional & off-market mandates" : "Verified acquisition opportunities"}</span></div>
       <div className="results-actions">
         <label className="sort-control"><SlidersHorizontal size={15} /><span>Sort By</span><select value={sort} onChange={(e) => setSort(e.target.value)}><option value="newest">Newest to Market</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option></select><ChevronDown size={14} /></label>
         <div className="view-toggle" aria-label="Layout">
@@ -103,7 +104,7 @@ export default function Catalogue({ category, allowCommercial = false, eyebrow =
       {visible.map((item) => <PropertyCard key={item.id} item={item} listView={view === "list"} />)}
     </div>
 
-    {visible.length === 0 && <div className="empty-state"><Search size={26} /><h3>No properties match these criteria</h3><p>Try widening the price range or clearing a filter to see the full verified portfolio.</p><button className="button button-teal" onClick={clearFilters}>Clear All Filters <ArrowRight size={16} /></button></div>}
+    {visible.length === 0 && <CatalogueEmptyState category={activeCategory} onClear={clearFilters} />}
 
     <p className="disclaimer">Illustrative portfolio · Not verified live inventory. Photography is editorial and indicative. Prices are subject to advisor confirmation.</p>
   </div></section>;

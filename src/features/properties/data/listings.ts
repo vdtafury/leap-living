@@ -57,61 +57,7 @@ export const listings: Listing[] = [
     alt: "Elegant contemporary lounge opening onto a waterfront terrace at dusk",
   },
 
-  /* --------------------------------------------------------------- rentals */
-  {
-    id: "LL-BB-204", name: "The Lana Residences", community: "Business Bay · The Lana",
-    location: "Business Bay", developer: "OMNIYAT", category: "rent", type: "Apartment",
-    price: 79000, priceLabel: "AED 79,000 / month", usd: "USD 21,500 / month",
-    beds: 3, facts: ["3 Beds", "4 Baths", "3,220 sq.ft"], view: "Dubai Canal & Downtown View",
-    badge: "Prime Residence", availability: "Available Now",
-    features: ["Fully Furnished", "Concierge", "Canal Frontage"], image: "/images/properties/property-residence.jpg",
-    alt: "Bright designer living room with garden and pool views",
-  },
-  {
-    id: "LL-MBR-118", name: "Sobha Hartland Garden Villa", community: "Mohammed Bin Rashid City",
-    location: "Mohammed Bin Rashid City", developer: "SOBHA REALTY", category: "rent", type: "Villa",
-    price: 65000, priceLabel: "AED 65,000 / month", usd: "USD 17,700 / month",
-    beds: 4, facts: ["4 Beds", "5 Baths", "4,780 sq.ft"], view: "Lagoon & Park View",
-    badge: "Prime Residence", availability: "Available Now",
-    features: ["Private Garden", "Maid's Room", "Covered Parking"], image: "/images/properties/property-townhouse.jpg",
-    alt: "Modern villa with palm trees and a private driveway",
-  },
-  {
-    id: "LL-EH-042", name: "Emirates Hills Estate Villa", community: "Emirates Hills",
-    location: "Emirates Hills", developer: "EMAAR", category: "rent", type: "Villa",
-    price: 121000, priceLabel: "AED 121,000 / month", usd: "USD 33,000 / month",
-    beds: 5, facts: ["5 Beds", "6 Baths", "8,100 sq.ft"], view: "Golf Course & Skyline View",
-    badge: "Private Mandate", availability: "Available from 1 Dec 2026",
-    features: ["Infinity Pool", "Golf Frontage", "Smart Home"], image: "/images/properties/property-pool.jpg",
-    alt: "Evening pool terrace with palm trees and waterfront villas beyond",
-  },
-  {
-    id: "LL-BW-210", name: "Bluewaters Waterfront Apartment", community: "Bluewaters Island",
-    location: "Bluewaters Island", developer: "MERAAS", category: "rent", type: "Apartment",
-    price: 62000, priceLabel: "AED 62,000 / month", usd: "USD 16,900 / month",
-    beds: 3, facts: ["3 Beds", "4 Baths", "2,410 sq.ft"], view: "Ain Dubai & Sea View",
-    badge: "Prime Residence", availability: "Available Now",
-    features: ["Sea View Terrace", "Fully Furnished", "Gym & Pool"], image: "/images/properties/property-terrace.jpg",
-    alt: "Contemporary lounge with a waterfront terrace at dusk",
-  },
-  {
-    id: "LL-PJ-310", name: "Palm Jumeirah Beach Villa", community: "Palm Jumeirah · Frond N",
-    location: "Palm Jumeirah", developer: "NAKHEEL", category: "rent", type: "Villa",
-    price: 145000, priceLabel: "AED 145,000 / month", usd: "USD 39,500 / month",
-    beds: 5, facts: ["5 Beds", "6 Baths", "7,200 sq.ft"], view: "Private Beach & Sea View",
-    badge: "Exclusive Mandate", availability: "Limited Availability",
-    features: ["Private Beach", "Infinity Pool", "Staff Quarters"], image: "/images/properties/property-palm.jpg",
-    alt: "Sun terrace and pool overlooking the Arabian Gulf",
-  },
-  {
-    id: "LL-DM-220", name: "Dubai Marina Sky Apartment", community: "Dubai Marina",
-    location: "Dubai Marina", developer: "DAMAC", category: "rent", type: "Apartment",
-    price: 42000, priceLabel: "AED 42,000 / month", usd: "USD 11,400 / month",
-    beds: 2, facts: ["2 Beds", "3 Baths", "1,850 sq.ft"], view: "Marina & Yacht View",
-    badge: "Prime Residence", availability: "Available Now",
-    features: ["Marina View", "Fully Furnished", "Valet Parking"], image: "/images/properties/property-marina.jpg",
-    alt: "Dubai Marina skyline and yachts viewed from the waterfront",
-  },
+  /* Rental records are intentionally omitted until live CRM availability is connected. */
 
   /* ------------------------------------------------------------ commercial */
   {
