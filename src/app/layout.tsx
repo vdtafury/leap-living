@@ -7,5 +7,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  // English-only site: no locale segment, no alternate-language metadata.
   return <html lang="en"><body>{children}</body></html>;
 }
