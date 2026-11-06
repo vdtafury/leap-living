@@ -31,7 +31,7 @@ export function Header() {
         onNavigate={() => setMenuOpen(false)}
       />
       <div className="header-actions">
-        <button className="button button-teal header-cta" onClick={() => openModal({ kind: "consultation" })}>
+        <button className="button button-teal button--compact header-cta" onClick={() => openModal({ kind: "consultation" })}>
           Private Advisory <ArrowRight size={16} />
         </button>
       </div>
