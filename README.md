@@ -1,6 +1,6 @@
-# LEAP LIVING — Homepage
+# LEAP LIVING — Multi-page site
 
-A responsive, light-themed LEAP LIVING real-estate advisory homepage built with Next.js App Router, React, TypeScript and locally bundled photography sourced from the web.
+A responsive, light-themed LEAP LIVING real-estate advisory site built with Next.js App Router, React, TypeScript and locally bundled photography sourced from the web.
 
 ## Run locally
 
@@ -11,17 +11,23 @@ npm run dev
 
 Then open `http://localhost:3000`.
 
-## What's on the page
+## Routes
 
-- Floating white pill navigation with dark wordmark, EN/AR switch and private-advisory CTA; collapses to a mobile menu.
-- Light hero with Dubai skyline photography, curved-villa accent, search card (Buy / Rent / Commercial + location, type, bedrooms and price filters) that actually filters the portfolio.
-- Company statistics, the Discover · Decide · Move methodology with architectural photography, and the five core commitments.
-- Featured property catalogue with Buy / Rent / Commercial tabs, sort, grid/list views, favourites, private-dossier and viewing request dialogs, and an empty state.
-- Off-market enquiry band, CEO message with credentials, developer partner wordmarks, selling & valuation CTA and a full footer.
-- Working UI state throughout: client-side search, filter chips, sorting, favourites, toast notices, language placeholder and an accessible enquiry modal. No backend or live listings service is connected.
+| Route | Content |
+| --- | --- |
+| `/` | Home — "Unlock your next move" hero, Buy / Rent / Commercial search, company stats, three featured acquisitions, Discover · Decide · Move teaser and advisory CTAs. |
+| `/about` | Company story, CEO message, Discover · Decide · Move methodology, commitments and developer partners. |
+| `/buy` | Featured homes for sale with prices, bedrooms, bathrooms, square footage and property types; buyer journey and private-dossier flow. |
+| `/rent` | Long-term rental listings with monthly pricing, location, availability and key features; leasing journey. |
+| `/sell` | Valuation and selling-plan CTA, a prototype valuation request form and the selling process. |
+| `/contact` | Name, email and message form, plus office, email, phone and opening-hours details. |
+
+`app/layout.tsx` wraps every route in `components/AppShell.tsx`, which provides the shared floating navigation, active-link highlighting, mobile menu, EN/AR placeholder, favourites, toast notices, enquiry modals, mobile advisory CTA and footer. Shared data lives in `components/site-data.ts`; shared presentation components in `components/ui.tsx`; the reusable Buy/Rent filter catalogue in `components/Catalogue.tsx`.
+
+Home search pushes real URL parameters into `/buy` or `/rent`; the catalogue reads them, applies location/type/bedroom/price filters, supports price sorting, grid/list views, favourites, dossier and viewing requests, and shows a clear empty state. All forms are front-end prototypes — no data leaves the browser and no backend or live listings feed is connected.
 
 ## Assets
 
-Photography was downloaded from public web sources, cleaned up (cropped / resized / colour-graded) and stored in `public/images/`, so the site has no runtime dependency on an external image host. See [`public/images/ASSET-SOURCES.md`](public/images/ASSET-SOURCES.md) for credits.
+Photography was downloaded from public web sources, cleaned up (cropped / resized / colour-graded) and stored in `public/images/`, so the site has no runtime dependency on an external image host. See [`public/images/ASSET-SOURCES.md`](public/images/ASSET-SOURCES.md) for credits. Watermarked stock previews were replaced with clean Pexels photography during the multi-page refresh.
 
 > The property photos are editorial placeholders, not verified inventory, and the executive portrait is illustrative — it does not depict Mohab Samak. Replace all of it with approved LEAP LIVING assets before production.

@@ -1,6 +1,6 @@
 # Image sources
 
-All photography on the homepage was downloaded from the public web and is stored locally in `public/images/` so the site renders without any external image host at runtime. Images are **editorial placeholders** for this prototype — they are not verified listing photography, not necessarily the named developments, and should be replaced with approved / licensed LEAP LIVING assets before production.
+All photography on this site was downloaded from the public web and is stored locally in `public/images/` so the site renders without any external image host at runtime. Images are **editorial placeholders** for this prototype — they are not verified listing photography, not necessarily the named developments, and should be replaced with approved / licensed LEAP LIVING assets before production. Watermarked stock previews were replaced with clean Pexels photos in the multi-page refresh.
 
 The executive portrait is a stock editorial portrait used for layout purposes only. **It does not depict Mohab Samak**; the page labels it as an illustrative portrait. Replace it with an approved photograph of the Founder & CEO before launch.
 
@@ -14,15 +14,15 @@ Developer names are typeset wordmarks, pending delivery of approved logo artwork
 | `hero-villa.jpg` | Happy Home Inspo, modern curved luxury villa exterior — https://happyhomeinspo.com/25-stunning-modern-luxury-villa-designs-for-a-breathtaking-exterior |
 | `brand-light.png`, `brand-dark.png` | Trimmed dark-teal / white variants of the supplied `leap-living-logo.png` |
 | `cta-architecture.jpg` | Pexels, blue glass facade — https://www.pexels.com/photo/blue-glass-facade-of-modern-building-18193138/ |
-| `band-architecture.jpg` | Dreamstime, curved glass office tower against blue sky — https://dreamstime.com/photos-images/modern-office-building-glass-facade-reflecting-clear-blue-sky-structure.html |
+| `band-architecture.jpg` | Pexels, curved glass tower under a blue sky — https://www.pexels.com/photo/tall-glass-buildings-under-blue-sky-with-white-clouds-5357782/ |
 
 ## Methodology cards
 
 | File | Source |
 | --- | --- |
 | `method-discover.jpg` | Vecteezy, white modern building under a blue sky — https://vecteezy.com/free-photos/modern-white-building-blue-sky |
-| `method-decide.jpg` | Dreamstime, curved blue glass facades — https://dreamstime.com/photos-images/curved-blue-glass-roof-modern-architecture.html |
-| `method-move.jpg` | Dreamstime, curved glass office building — https://dreamstime.com/photos-images/modern-office-building-glass-facade-reflecting-clear-blue-sky-structure.html |
+| `method-decide.jpg` | Pexels, blue glass facade with curved metal lines — https://www.pexels.com/photo/modern-office-building-with-glass-facade-39429446/ |
+| `method-move.jpg` | Pexels, curved glass towers seen from below — https://www.pexels.com/photo/worm-s-eye-view-of-city-buildings-417273/ |
 
 ## Property cards
 
