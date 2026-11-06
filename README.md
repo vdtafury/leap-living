@@ -1,23 +1,35 @@
 # LEAP LIVING
 
-A responsive LEAP LIVING real-estate advisory homepage built with Next.js App Router, React, TypeScript, and a small set of locally bundled design assets.
+Responsive LEAP LIVING real-estate advisory homepage built with Next.js App Router, React, and TypeScript. The public website experience is English-only.
 
 ## Run locally
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
 Then open `http://localhost:3000`.
 
-## Included
+## Quality checks
 
-- Responsive hero, sticky navigation, property search controls, company statistics, methodology, property cards, leadership editorial, developer partners, valuation CTA, and footer.
-- Brand color tokens in `app/globals.css`, aligned with the official LEAP LIVING teal and neutral palette.
-- Working UI states for search criteria, intent/category tabs, favorites, language selector placeholder, and mobile navigation. Search and catalogue data are not connected to a backend.
-- The official supplied LEAP LIVING logo. Partner wordmarks are text treatments pending approved logo artwork.
+```bash
+npm test       # Vitest + React Testing Library
+npm run build  # production build and type-check
+npm audit      # dependency security audit
+```
 
-## Asset notes
+## Project structure
 
-See [`public/images/ASSET-SOURCES.md`](public/images/ASSET-SOURCES.md) for interim editorial photography credits. The photos are placeholders, not verified listing photos; replace them with approved LEAP LIVING assets before production. No authentic executive portrait was provided, so the leadership image is architectural photography and does not depict Mohab Samak.
+- `app/` — App Router page, metadata, and global design tokens/styles.
+- `components/sections/` — Homepage sections, separated for easier changes.
+- `components/` — Shared UI such as navigation, search, brand mark, and section headings.
+- `lib/home-data.ts` — Typed homepage examples and category-data selection.
+- `tests/` — Tests for search controls, navigation, favorites, and property categories.
+- `public/images/ASSET-SOURCES.md` — Interim editorial photography credits and asset notes.
+
+## CRM and assets
+
+Search, property detail, and contact flows are currently UI placeholders; CRM/database integration is intentionally deferred. The rental category shows an explicit empty state until actual rental records are available. Buy properties are illustrative examples, not verified live inventory.
+
+Photos are placeholders and should be replaced with approved LEAP LIVING assets before production. No authentic executive portrait or developer logo files were supplied; the leadership section uses architectural photography and partner names remain text wordmarks.
