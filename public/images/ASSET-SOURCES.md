@@ -2,7 +2,7 @@
 
 All photography on this site was downloaded from the public web and is stored locally under `public/images/` (organised into `hero/`, `properties/`, `leadership/` and `methodology/`) so the site renders without any external image host at runtime. Images are **editorial placeholders** for this prototype — they are not verified listing photography, not necessarily the named developments, and should be replaced with approved / licensed LEAP LIVING assets before production. Watermarked stock previews were replaced with clean Pexels photos in the multi-page refresh.
 
-The executive portrait is a stock editorial portrait used for layout purposes only. **It does not depict Mohab Samak**; the page labels it as an illustrative portrait. Replace it with an approved photograph of the Founder & CEO before launch.
+The leadership portrait is an authentic corporate press photograph of Mohab Samak, cropped from a group photograph distributed with his CEO announcement. The original press source and credit are recorded below. The earlier stock portrait is no longer used.
 
 Developer names are typeset wordmarks, pending delivery of approved logo artwork.
 
@@ -12,6 +12,7 @@ Developer names are typeset wordmarks, pending delivery of approved logo artwork
 | --- | --- |
 | `hero/hero-skyline.jpg` | Andrew Prokos, *Burj Khalifa / Dubai Creek skyline at sunset* — https://andrewprokos.com/photo/burj-khalifa-dubai-creek-skyline-sunset-6757/ (bottom edge cropped to remove the photographer's mark) |
 | `hero/hero-villa.jpg` | Happy Home Inspo, modern curved luxury villa exterior — https://happyhomeinspo.com/25-stunning-modern-luxury-villa-designs-for-a-breathtaking-exterior |
+| `hero/hero-palm-jumeirah.jpg` | Nelemson G / Pexels, Palm Jumeirah waterfront villas — https://www.pexels.com/photo/palm-jumeirah-villas-in-dubai-scenic-view-29212663/ — Pexels Free license: https://www.pexels.com/license/ |
 | `../brand/brand-light.png`, `../brand/brand-dark.png` | Trimmed dark-teal / white variants of the supplied `leap-living-logo.png` |
 | `hero/cta-architecture.jpg` | Pexels, blue glass facade — https://www.pexels.com/photo/blue-glass-facade-of-modern-building-18193138/ |
 | `hero/band-architecture.jpg` | Pexels, curved glass tower under a blue sky — https://www.pexels.com/photo/tall-glass-buildings-under-blue-sky-with-white-clouds-5357782/ |
@@ -42,4 +43,4 @@ Developer names are typeset wordmarks, pending delivery of approved logo artwork
 
 | File | Source |
 | --- | --- |
-| `leadership/ceo-portrait.jpg` | PresentationGo, business professional portrait — https://presentationgo.com/presentation/business-professional-portrait (illustrative only) |
+| `leadership/mohab-samak.jpg` | Authentic corporate press photograph of Mohab Samak, cropped from the CEO announcement group image — MENAFN / Deja Vu Real Estate press release, 14 September 2023 — https://menafn.com/1107067846/Deja-Vu-Real-Estate-Fortifies-its-Leadership-with-Managing-Partner-and-CEO-Mohab-Samak-Aiming-for-Excellence-in-UAE-Real-Estate |

@@ -6,7 +6,7 @@ import { navItems } from "@/config/navigation";
 
 export function Navigation({ open = false, onNavigate }: { open?: boolean; onNavigate?: () => void }) {
   const pathname = usePathname();
-  return <nav className={`main-nav${open ? " is-open" : ""}`} aria-label="Main navigation">
+  return <nav id="main-navigation" className={`main-nav${open ? " is-open" : ""}`} aria-label="Main navigation">
     {navItems.map((item) => {
       const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
       return <Link

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight, Bath, BedDouble, Building2, CalendarDays, Eye, Heart,
   Layers3, MapPin, Maximize2, Sparkles,
@@ -8,13 +9,14 @@ import {
 import { useSite } from "@/components/layout/SiteContext";
 import type { Listing } from "@/types/property";
 
-export function PropertyCard({ item, listView = false }: { item: Listing; listView?: boolean }) {
+export function PropertyCard({ item, listView = false, featured = false }: { item: Listing; listView?: boolean; featured?: boolean }) {
   const { favorites, toggleFavorite, openModal } = useSite();
   const saved = favorites.includes(item.id);
   const isRent = item.category === "rent";
   const isCommercial = item.category === "commercial";
+  const detailsHref = `/buy/${encodeURIComponent(item.id)}`;
 
-  return <article className={`property-card${listView ? " is-list-card" : ""}`}>
+  return <article className={`property-card${listView ? " is-list-card" : ""}${featured ? " is-featured" : ""}`}>
     <div className="property-photo">
       <Image src={item.image} alt={item.alt} fill sizes={listView ? "(max-width: 760px) 100vw, 36vw" : "(max-width: 760px) 100vw, 33vw"} />
       <span className="property-badge">{item.badge}</span>
@@ -25,11 +27,11 @@ export function PropertyCard({ item, listView = false }: { item: Listing; listVi
         aria-label={`${saved ? "Remove" : "Save"} ${item.name}`}
         aria-pressed={saved}
       ><Heart size={18} fill={saved ? "currentColor" : "none"} /></button>
-      <span className="photo-dots" aria-hidden="true"><i /><i /><i /><i /></span>
+      {!featured && <span className="photo-dots" aria-hidden="true"><i /><i /><i /><i /></span>}
     </div>
     <div className="property-body">
       <p className="property-ref">{item.id} <span>·</span> {item.type.toUpperCase()}</p>
-      <h3>{item.name}</h3>
+      <h3><Link className="property-title-link" href={detailsHref}>{item.name}</Link></h3>
       <p className="property-location"><MapPin size={14} /> {item.community}</p>
       <p className="property-price">{item.priceLabel}</p>
       <p className="property-usd">≈ {item.usd}</p>
@@ -47,14 +49,14 @@ export function PropertyCard({ item, listView = false }: { item: Listing; listVi
       {isRent && item.features && <div className="property-features">
         {item.features.map((feature) => <span key={feature}><Sparkles size={12} />{feature}</span>)}
       </div>}
-      <div className="property-actions">
-        <button className="button button-teal" onClick={() => openModal({ kind: "dossier", listing: item })}>
-          {isRent ? "Request Lease Brief" : "Request Private Dossier"} <ArrowRight size={16} />
-        </button>
-        <button className="button button-outline" onClick={() => openModal({ kind: "viewing", listing: item })}>
-          <CalendarDays size={16} /> Schedule Viewing
-        </button>
-      </div>
+      {featured
+        ? <Link className="property-details-link" href={detailsHref}>Inspect Property Details <ArrowRight size={15} /></Link>
+        : <div className="property-actions">
+            <Link className="button button-teal" href={detailsHref}>Inspect Property Details <ArrowRight size={16} /></Link>
+            <button className="button button-outline" onClick={() => openModal({ kind: "viewing", listing: item })}>
+              <CalendarDays size={16} /> Schedule Viewing
+            </button>
+          </div>}
     </div>
   </article>;
 }

@@ -11,6 +11,7 @@ export function MobileNavigation({
       className="menu-toggle"
       aria-label={open ? "Close navigation" : "Open navigation"}
       aria-expanded={open}
+      aria-controls="main-navigation"
       onClick={onToggle}
     >{open ? <X size={22} /> : <Menu size={22} />}</button>
     <Navigation open={open} onNavigate={onNavigate} />

@@ -38,7 +38,7 @@ export default function AboutPage() {
     {/* ------------------------------------------------------- CEO message */}
     <section className="leadership-section"><div className="wrap">
       <div className="leadership-grid">
-        <div className="leadership-photo"><Image src="/images/leadership/ceo-portrait.jpg" alt="Editorial portrait of a business leader in a suit (illustrative)" fill sizes="(max-width: 760px) 100vw, 32vw" /><span>Illustrative editorial portrait</span></div>
+        <div className="leadership-photo"><Image src="/images/leadership/mohab-samak.jpg" alt="Mohab Samak, Founder and CEO of LEAP LIVING" fill sizes="(max-width: 760px) 100vw, 32vw" /><span>Founder &amp; CEO · LEAP LIVING</span></div>
         <div className="leadership-message">
           <p className="eyebrow">A MESSAGE FROM OUR CEO <span /></p>
           <blockquote><Quote size={26} /> With more than 21 years of experience across corporate real estate, asset management, leasing, and commercialization, I have built my career around one principle: informed decisions create exceptional outcomes.</blockquote>

@@ -29,6 +29,9 @@ npm audit
 | `/` | Home — "Unlock your next move" hero, Buy / Rent / Commercial search, company stats, three featured acquisitions, Discover · Decide · Move teaser and advisory CTAs. |
 | `/about` | Company story, CEO message, Discover · Decide · Move methodology, commitments and developer partners. |
 | `/buy` | Homes for sale with prices, bedrooms, bathrooms, square footage and property types; buyer journey and private-dossier flow. |
+| `/buy/[id]` | Statically generated property details, enquiry, viewing and favourite actions for every existing listing. |
+| `/privacy` | Privacy information for the current front-end prototype. |
+| `/terms` | Website and illustrative-portfolio terms of use. |
 | `/rent` | Leasing advisory content with an explicit empty state until CRM-backed rental availability is connected. |
 | `/sell` | Valuation and selling-plan CTA, a prototype valuation form and the selling process. |
 | `/contact` | Name, email and message form, plus office, email, phone and opening-hours details. |
@@ -72,15 +75,15 @@ tests/                  catalogue/category empty-state tests
 
 `src/app/(website)/layout.tsx` wraps every public route in `SiteShell`, which owns the shared header, footer, favourites, toast notices, enquiry modal and mobile advisory CTA. Configuration lives in one place (`config/`), domain types in `types/`, and content in `features/`.
 
-**Not built yet (later phases of the target architecture):** `src/app/admin/`, `src/app/api/`, `prisma/`, `storage/`, `scripts/`, `[slug]` property-detail pages and `/private-advisory`. Icons come from `lucide-react` and fonts from `@fontsource`, so `public/icons/` and `public/fonts/` are intentionally omitted.
+**Not built yet (later phases of the target architecture):** `src/app/admin/`, `src/app/api/`, `prisma/`, `storage/`, `scripts/` and `/private-advisory`. Icons come from `lucide-react` and fonts from `@fontsource`, so `public/icons/` and `public/fonts/` are intentionally omitted.
 
 ## Navbar
 
-The header is a floating white pill inside a fixed bar that is transparent at rest and gains a subtle white surface, border and shadow once the page scrolls. All geometry is driven by tokens on `.site-header` (`--header-h`, `--header-pad`, `--header-gap`, `--header-gutter`, `--header-radius`, `--header-side`, `--logo-w`, `--nav-gap`) and overridden per breakpoint instead of restating raw numbers. Equal side columns keep the six links mathematically centred, and the active indicator uses the official brand teal `--brand-teal: #3B9EA1` (with `aria-current="page"`). `--header-clearance` drives `scroll-padding-top`, anchor `scroll-margin-top` and the toast offset so sticky content never overlaps. The Private Advisory button uses the shared `.button--compact` variant. Navigation labels, links, the logo artwork and all functionality are unchanged.
+The header is a flat, editorial navigation bar with the six existing routes and Private Advisory action. On the homepage it sits over the dark architectural hero and becomes a white, subtly shadowed bar after scrolling; internal routes use the white surface immediately. The mobile menu is keyboard-dismissible and the active route retains `aria-current="page"`. There is no language switcher. Shared header and footer styling lives in `src/components/layout/chrome.css`.
 
 ## Hero
 
-The home hero uses a `next/image` `fill` photo, not a CSS background: `object-fit: cover` keeps the source proportions (no stretching), `object-position: center 0%` frames the skyline from the top, and a uniform `scale(1.3)` crops the streaked water reflection out of frame. `sizes="130vw"` matches that zoom so the browser requests a source at the real displayed width instead of upscaling a smaller variant; `next.config.ts` adds a 1440 `deviceSizes` step for the same reason. A single alpha mask on `.hero-media` dissolves the band into the white page, replacing the two stacked white overlays that previously produced a milky gradient. The left-to-right scrim is the only remaining overlay, so copy contrast is preserved without tinting the sunset. The featured-villa image is tucked flush beneath the header pill with a true rounded corner, a soft top blend, and its own responsive `sizes`; it sits above the transparent hero content layer so the `/buy` link stays clickable.
+The home hero is a full-width, dark Dubai skyline composition with editorial white typography, a compact Palm Jumeirah feature visual, consultation actions, and an overlapping search panel. Search supports Buy, Rent and Commercial intent plus free-text location, community or developer matching, property type and price bounds. The homepage then follows the reference order: credibility metrics, Discover · Decide · Move cards, tabbed featured properties, executive leadership, developer partners and the selling CTA. Homepage-specific responsive styling lives in `src/app/(website)/home.css`. Property cards link to statically generated `/buy/[id]` detail pages while preserving dossier, viewing and favourite actions.
 
 ## Behaviour and rental availability
 
@@ -94,4 +97,4 @@ Vitest and React Testing Library cover the property-category selector, rental em
 
 Photography was downloaded from public web sources, cleaned up (cropped / resized / colour-graded) and stored in `public/`, so the site has no runtime dependency on an external image host. See [`public/images/ASSET-SOURCES.md`](public/images/ASSET-SOURCES.md) for per-file credits. Watermarked stock previews were replaced with clean Pexels photography.
 
-> The property photos are editorial placeholders, not verified inventory, and the executive portrait is illustrative — it does not depict Mohab Samak. Replace all of it with approved LEAP LIVING assets before production.
+> The property photos and records remain editorial placeholders, not verified inventory. The leadership section uses an authentic corporate press photograph of Mohab Samak, credited in `public/images/ASSET-SOURCES.md`. Replace illustrative listing assets with approved LEAP LIVING inventory before production.
