@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
 import { ArrowRight, CalendarDays, Compass, KeyRound, ShieldCheck } from "lucide-react";
 import Catalogue from "@/features/properties/filters/Catalogue";
 import { CtaBand } from "@/components/shared/CtaBand";
@@ -21,7 +22,7 @@ export default function RentPage() {
       <Link className="button button-ghost" href="/contact">Speak With a Leasing Advisor <ArrowRight size={17} /></Link>
     </PageHero>
 
-    <Catalogue category="rent" eyebrow="PRIME RESIDENCES" title="Rental Listings" />
+    <Suspense fallback={<div className="catalogue-loading">Loading properties…</div>}><Catalogue category="rent" eyebrow="PRIME RESIDENCES" title="Rental Listings" /></Suspense>
 
     <Steps
       eyebrow="THE LEASING ADVISORY"

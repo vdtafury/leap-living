@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import "./globals.css";
+import "../components/layout/chrome.css";
 
 export const metadata: Metadata = {
   title: "LEAP LIVING | Certainty Through Precision",

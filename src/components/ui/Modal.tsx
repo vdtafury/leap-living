@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Check, CheckCircle2, Send, X } from "lucide-react";
 import type { ModalState } from "@/components/layout/SiteContext";
 
@@ -43,14 +43,32 @@ function getCopy(state: ModalKind) {
 
 export function EnquiryModal({ state, onClose }: { state: ModalKind; onClose: () => void }) {
   const [sent, setSent] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const copy = getCopy(state);
 
+  useEffect(() => {
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const dialog = dialogRef.current;
+    const focusable = () => Array.from(dialog?.querySelectorAll<HTMLElement>("button, input, textarea, select, a[href]") ?? []).filter((element) => !element.hasAttribute("disabled"));
+    focusable()[0]?.focus();
+    const trapFocus = (event: KeyboardEvent) => {
+      if (event.key !== "Tab") return;
+      const elements = focusable();
+      const first = elements[0];
+      const last = elements[elements.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    };
+    dialog?.addEventListener("keydown", trapFocus);
+    return () => { dialog?.removeEventListener("keydown", trapFocus); previousFocus?.focus(); };
+  }, []);
+
   return <div className="modal-backdrop" onMouseDown={onClose}>
-    <div className="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" onMouseDown={(event) => event.stopPropagation()}>
+    <div ref={dialogRef} className="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-subtitle" onMouseDown={(event) => event.stopPropagation()}>
       <button className="modal-close" onClick={onClose} aria-label="Close dialog"><X size={20} /></button>
       <p className="eyebrow">{copy.eyebrow} <span /></p>
       <h2 id="modal-title">{copy.title}</h2>
-      <p className="modal-sub">{copy.subtitle}</p>
+      <p className="modal-sub" id="modal-subtitle">{copy.subtitle}</p>
       {sent
         ? <div className="modal-success">
             <CheckCircle2 size={38} />

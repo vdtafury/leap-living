@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
 import { ArrowRight, KeyRound, Layers3, Search } from "lucide-react";
 import { useSite } from "@/components/layout/SiteContext";
 import Catalogue from "@/features/properties/filters/Catalogue";
@@ -23,7 +24,7 @@ export default function BuyPage() {
       <Link className="button button-ghost" href="/contact">Request a Private Dossier <ArrowRight size={17} /></Link>
     </PageHero>
 
-    <Catalogue category="buy" allowCommercial eyebrow="CURATED PROPERTIES" title="Featured Acquisitions" />
+    <Suspense fallback={<div className="catalogue-loading">Loading properties…</div>}><Catalogue category="buy" allowCommercial eyebrow="CURATED PROPERTIES" title="Featured Acquisitions" /></Suspense>
 
     <CtaBand variant="photo" eyebrow="PRIVATE & OFF-MARKET ACCESS" title="Looking for Off-Market or Institutional Acquisitions?" text="A substantial portion of Dubai's ultra-prime transactions occur privately. Leap Living maintains discreet, direct access to unlisted penthouses, private island plots, and full-building opportunities." button="Inquire for Private Off-Market Portfolio" onClick={() => openModal({ kind: "offmarket" })} />
 

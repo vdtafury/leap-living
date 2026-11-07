@@ -12,6 +12,8 @@ export function Header() {
   const { openModal } = useSite();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
+  const light = isHome && !scrolled && !menuOpen;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -22,9 +24,16 @@ export function Header() {
 
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
-  return <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  return <header className={`site-header${isHome ? " is-home" : ""}${scrolled ? " is-scrolled" : ""}${menuOpen ? " menu-open" : ""}`}>
     <div className="header-shell wrap">
-      <BrandMark />
+      <BrandMark tone={light ? "light" : "dark"} />
       <MobileNavigation
         open={menuOpen}
         onToggle={() => setMenuOpen(!menuOpen)}
